@@ -39,8 +39,8 @@ class InputData(BaseModel):
     x2: float
     x3: float
     x4: float
-    x5: str
-    x6: str
+    x5: float
+    x6: float
 
 # 예측 결과를 반환할 모델 정의
 class OutputData(BaseModel):
@@ -53,6 +53,13 @@ async def predict(input_data: InputData):
     # 모델 파일을 로딩합니다.
     model = joblib.load("model.pkl")
     
+    type(input_data.x1)
+    type(input_data.x2)
+    type(input_data.x3)
+    type(input_data.x4)
+    type(input_data.x5)
+    type(input_data.x6)
+
     # 입력값을 Numpy 배열로 변환합니다.
     X = np.array([input_data.x1, input_data.x2, input_data.x3, input_data.x4, input_data.x5, input_data.x6]).reshape(1, -1)
     

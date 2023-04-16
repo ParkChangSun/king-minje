@@ -1,11 +1,11 @@
 import React from 'react';
-import Main from './page/Main';
+import PublicLayout from './component/PublicLayout';
 import './App.css';
 
 function App() {
   return (
     <div className='App'>
-      <Main />
+      <PublicLayout />
     </div>
   );
 }

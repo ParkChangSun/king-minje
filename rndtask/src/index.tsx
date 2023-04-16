@@ -2,14 +2,39 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import reportWebVitals from './reportWebVitals';
 
-const root = ReactDOM.createRoot(
-  document.getElementById('root') as HTMLElement
-);
+import PublicLayout from './component/PublicLayout';
+import Main from './page/Main';
+import Predict from './page/Predict';
+import About from './page/About';
+
+const router = createBrowserRouter([
+  {
+    path: '/',
+    element: <PublicLayout />,
+    children: [
+      {
+        index: true,
+        element: <Predict />,
+      },
+      {
+        path: '/Home',
+        element: <Predict />,
+      },
+      {
+        path: '/About',
+        element: <About />,
+      },
+    ],
+  },
+]);
+
+const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
 root.render(
   <React.StrictMode>
-    <App />
+    <RouterProvider router={router} />
   </React.StrictMode>
 );
 
